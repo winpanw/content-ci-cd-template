@@ -7,6 +7,6 @@ from CommonServerPython import *
 def main():
     try:
         xyz_test()
-        print("test")
+        print("test1")
     except Exception as e:
         print(str(e))
