@@ -63,7 +63,7 @@ jobs:
         run: |
           source $GITHUB_WORKSPACE/content/.venv/bin/activate
 
-          cd $GITHUB_WORKSPACE/content-ci-cd-template
+          cd $GITHUB_WORKSPACE
 
           # Copy necessary files
           cp $GITHUB_WORKSPACE/content/Tests/demistomock/demistomock.py ./
