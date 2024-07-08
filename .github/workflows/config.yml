@@ -63,14 +63,15 @@ jobs:
         run: |
           source $GITHUB_WORKSPACE/content/.venv/bin/activate
 
-          cd $GITHUB_WORKSPACE
+          cd $GITHUB_WORKSPACE/content-ci-cd-template
 
           # Copy necessary files
           cp $GITHUB_WORKSPACE/content/Tests/demistomock/demistomock.py ./
           cp $GITHUB_WORKSPACE/content/Tests/demistomock/demistomock.ps1 ./
           cp $GITHUB_WORKSPACE/content/Packs/Base/Scripts/CommonServerPython/CommonServerPython.py ./
           cp $GITHUB_WORKSPACE/content/Packs/Base/Scripts/CommonServerPowerShell/CommonServerPowerShell.ps1 ./
-          mkdir -p ./dev_envs/pytest/
+         # mkdir -p ./dev_envs/pytest/
+          mkdir -p ./pytest/
           cp $GITHUB_WORKSPACE/content/Tests/scripts/pytest/conftest.py ./dev_envs/pytest/
 
           # Run lint on all changed files
@@ -106,9 +107,9 @@ jobs:
               # Upload to the artifacts server of your choice.
               # Create a file with the service account data
               # use the bucket_upload script to upload your packs to google cloud storage
-              python $GITHUB_WORKSPACE/build_related_scripts/bucket_upload.py --service_account $GITHUB_WORKSPACE/service_account.json --packs_directory $NEW_PACKS_FOLDER --branch_name $BRANCH_NAME
+              # python $GITHUB_WORKSPACE/build_related_scripts/bucket_upload.py --service_account $GITHUB_WORKSPACE/service_account.json --packs_directory $NEW_PACKS_FOLDER --branch_name $BRANCH_NAME
               # Delete the service account file
-              rm $GITHUB_WORKSPACE/service_account.json
+              # rm $GITHUB_WORKSPACE/service_account.json
 
               # 2. ========= UPLOAD DIRECTLY TO YOUR XSOAR MACHINE (WHEN MERGING TO MAIN REPO) =========
 
