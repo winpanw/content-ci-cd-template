@@ -63,21 +63,23 @@ jobs:
         run: |
           source $GITHUB_WORKSPACE/content/.venv/bin/activate
 
-          cd $GITHUB_WORKSPACE/content-ci-cd-template
+          cd $GITHUB_WORKSPACE
 
           # Copy necessary files
           cp $GITHUB_WORKSPACE/content/Tests/demistomock/demistomock.py ./
           cp $GITHUB_WORKSPACE/content/Tests/demistomock/demistomock.ps1 ./
           cp $GITHUB_WORKSPACE/content/Packs/Base/Scripts/CommonServerPython/CommonServerPython.py ./
           cp $GITHUB_WORKSPACE/content/Packs/Base/Scripts/CommonServerPowerShell/CommonServerPowerShell.ps1 ./
-         # mkdir -p ./dev_envs/pytest/
+          # mkdir -p ./dev_envs/pytest/
           mkdir -p ./pytest/
           cp $GITHUB_WORKSPACE/content/Tests/scripts/pytest/conftest.py ./dev_envs/pytest/
 
           # Run lint on all changed files
           # You can choose what lint checks to use in the .demisto-sdk-conf file
           demisto-sdk lint -g --prev-ver ${DEFAULT_BRANCH}
-      - name: Create Packs Artifacts
+      - name: Create Packs Artifacts    def test_foo(caplog):
+        logging.getLogger().warning('this is ok')
+        caplog.clear()
         run: |
           if [ $PACKS_CHANGED ]; then
             source $GITHUB_WORKSPACE/content/.venv/bin/activate
