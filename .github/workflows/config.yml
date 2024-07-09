@@ -70,8 +70,8 @@ jobs:
           cp $GITHUB_WORKSPACE/content/Tests/demistomock/demistomock.ps1 ./
           cp $GITHUB_WORKSPACE/content/Packs/Base/Scripts/CommonServerPython/CommonServerPython.py ./
           cp $GITHUB_WORKSPACE/content/Packs/Base/Scripts/CommonServerPowerShell/CommonServerPowerShell.ps1 ./
-          # mkdir -p ./dev_envs/pytest/
-          mkdir -p ./pytest/
+          mkdir -p ./dev_envs/pytest/
+          
           cp $GITHUB_WORKSPACE/content/Tests/scripts/pytest/conftest.py ./dev_envs/pytest/
 
           # Run lint on all changed files
