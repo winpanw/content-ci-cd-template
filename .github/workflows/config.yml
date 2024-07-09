@@ -75,8 +75,8 @@ jobs:
           # You can choose what lint checks to use in the .demisto-sdk-conf file
           demisto-sdk lint -g --prev-ver ${DEFAULT_BRANCH}
       - name: Create Packs Artifacts    def test_foo(caplog):
-        logging.getLogger().warning('this is ok')
-        caplog.clear()
+          logging.getLogger().warning('this is ok')
+          caplog.clear()
         run: |
           if [ $PACKS_CHANGED ]; then
             source $GITHUB_WORKSPACE/content/.venv/bin/activate
